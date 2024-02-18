@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './main.css';
 import ErrorPage, { loader as errorLoader } from '~/routes/error-page';
+import RootLayout from '~/routes/rootLayout.tsx';
+import RootIndex from '~/routes/index';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: null, // TODO: layout
+    element: <RootLayout />,
     errorElement: <ErrorPage />,
     children: [
       {
@@ -15,7 +17,7 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: null, // TODO: index page
+            element: <RootIndex />,
           },
           {
             path: '/*',
