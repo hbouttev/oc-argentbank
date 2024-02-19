@@ -6,6 +6,10 @@ import ErrorPage, { loader as errorLoader } from '~/routes/error-page';
 import RootLayout from '~/routes/rootLayout.tsx';
 import RootIndex from '~/routes/index';
 import Login, { action as loginAction } from '~/routes/login/login.tsx';
+import Profile, {
+  loader as profileLoader,
+  action as loaderAction,
+} from '~/routes/profile/profile.tsx';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +28,12 @@ const router = createBrowserRouter([
             path: 'login',
             element: <Login />,
             action: loginAction,
+          },
+          {
+            path: 'profile',
+            element: <Profile />,
+            loader: profileLoader,
+            action: loaderAction,
           },
           {
             path: '/*',
