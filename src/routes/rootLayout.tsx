@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { Link, useLocation } from 'react-router-dom';
-import UserIcon from '~/assets/icons/user-circle.svg?react';
+import LoginStatusButton from '~/features/auth/LoginStatusButton/LoginStatusButton';
 
 export default function RootLayout() {
   const { pathname } = useLocation();
@@ -19,13 +19,7 @@ export default function RootLayout() {
           />
           <h1 className="sr-only">Argent Bank</h1>
         </Link>
-        <Link
-          to="/login"
-          className="mr-2 flex items-center gap-1.5 hover:underline"
-        >
-          <UserIcon className="fill-primary size-[16px]" />
-          Sign In
-        </Link>
+        <LoginStatusButton />
       </nav>
       <main className={`flex-1${dashboardMainStyle}`}>
         <Outlet />
