@@ -16,7 +16,7 @@ export default function ErrorPage() {
     }
 
     return (
-      <div className="flex w-full flex-col items-center gap-8 py-12">
+      <div className="flex w-full flex-col items-center gap-8 py-12 text-white">
         <h1 className="text-5xl	font-bold">{error.status}</h1>
         <p>{errorText}</p>
         <Link to="/" className="underline">
@@ -28,7 +28,7 @@ export default function ErrorPage() {
     console.error(error);
 
     return (
-      <div className="flex w-full flex-col items-center gap-8 py-12">
+      <div className="flex w-full flex-col items-center gap-8 py-12 text-white">
         <h1 className="text-5xl	font-bold">Oups !</h1>
         <p>Désolé, une erreur imprévue s'est produite.</p>
         <Link to="/" className="underline">
