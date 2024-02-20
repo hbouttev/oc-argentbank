@@ -1,15 +1,23 @@
 import { useLoaderData } from 'react-router-dom';
-import type { LoaderFunctionArgs, ActionFunctionArgs } from 'react-router-dom';
+import type { ActionFunctionArgs } from 'react-router-dom';
 import type { LoaderData } from '~/types/react-router.ts';
 import Account from '~/components/Account/Account.tsx';
+import { authenticateUser } from '~/features/auth/auth.ts';
 
-export async function loader({ request }: LoaderFunctionArgs) {
-  // TODO: get real user data
+export async function loader() {
+  const user = authenticateUser();
+  if (!user) {
+    // This should never happen, as the user is set when authenticating, but the
+    // type can still be null
+    return {
+      user: {
+        firstName: '',
+        lastName: '',
+      },
+    };
+  }
   return {
-    user: {
-      firstName: 'Tony',
-      lastName: 'Jarvis',
-    },
+    user,
   };
 }
 
