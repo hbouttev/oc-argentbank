@@ -1,7 +1,7 @@
 import UserIcon from '~/assets/icons/user-circle.svg?react';
 import { Form, redirect, useActionData } from 'react-router-dom';
 import type { ActionFunctionArgs } from 'react-router-dom';
-import FormTextInput from '~/features/auth/LoginForm/FormTextInput.tsx';
+import FormTextInput from './FormTextInput.tsx';
 import { login } from '~/features/auth/login.ts';
 import type { ActionData } from '~/types/react-router.ts';
 
