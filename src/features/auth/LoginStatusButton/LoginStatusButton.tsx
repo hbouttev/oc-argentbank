@@ -1,9 +1,9 @@
 import { ReactNode } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { logout, selectUser } from '~/features/auth/authSlice.ts';
 import { Link, useNavigate } from 'react-router-dom';
 import UserIcon from '~/assets/icons/user-circle.svg?react';
 import SignOutIcon from '~/assets/icons/sign-out.svg?react';
+import { useAppDispatch, useAppSelector } from '~/hooks.ts';
 
 /**
  * The login status button to be displayed in the header.
@@ -12,8 +12,8 @@ import SignOutIcon from '~/assets/icons/sign-out.svg?react';
  * usage.
  */
 export default function LoginStatusButton() {
-  const dispatch = useDispatch();
-  const user = useSelector(selectUser);
+  const dispatch = useAppDispatch();
+  const user = useAppSelector(selectUser);
   const navigate = useNavigate();
 
   const handleLogout = () => {
