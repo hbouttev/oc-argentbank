@@ -22,13 +22,11 @@ export async function action({ request }: ActionFunctionArgs) {
 
 export default function Login() {
   const actionData = useActionData() as ActionData<typeof action>;
-  let error = '';
-  if (actionData?.error) {
-    error = actionData.error;
-  }
+  const error = actionData?.error;
+
   return (
     <section className="mx-auto mt-12 w-[300px] bg-white p-8">
-      <UserIcon className="fill-primary inline-block size-[16px]" />
+      <UserIcon className="inline-block size-[16px] fill-primary" />
       <h2 className="my-5 text-2xl font-bold">Sign In</h2>
       <Form method="post">
         <FormTextInput label="Username" name="username" type="text" />
@@ -47,7 +45,7 @@ export default function Login() {
         {error && <p className="mt-4 text-[1.1rem] text-red-500">{error}</p>}
         <button
           type="submit"
-          className="bg-tertiary border-tertiary mt-4 block w-full p-2 text-[1.1rem] font-bold text-white"
+          className="mt-4 block w-full border-tertiary bg-tertiary p-2 text-[1.1rem] font-bold text-white"
         >
           Sign In
         </button>
