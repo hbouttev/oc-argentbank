@@ -35,7 +35,6 @@ export async function unauthenticatedFetch(
 export function authenticateUser() {
   const { authToken, user } = store.getState().auth;
   if (!authToken) {
-    // throw new Error('User is not authenticated.');
     throw redirect('/login');
   }
   return user;
