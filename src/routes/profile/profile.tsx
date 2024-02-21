@@ -25,7 +25,6 @@ export async function loader() {
 }
 
 export async function action({ request }: ActionFunctionArgs) {
-  console.log('profile action');
   const formData = await request.formData();
   const { firstName, lastName } = Object.fromEntries(formData);
   if (typeof firstName !== 'string' || typeof lastName !== 'string') {
@@ -67,7 +66,7 @@ export default function Profile() {
         </h2>
         {isEditingName ? (
           <Form method="post" className="flex flex-col gap-4 px-2">
-            <div className="text-primary flex flex-wrap justify-center gap-5">
+            <div className="flex flex-wrap justify-center gap-5 text-primary">
               <FormTextInput name="firstName" placeholder={user.firstName} />
               <FormTextInput name="lastName" placeholder={user.lastName} />
             </div>
@@ -75,13 +74,13 @@ export default function Profile() {
               {error && <p className="text-[1.1rem] text-red-500">{error}</p>}
               <button
                 type="submit"
-                className="bg-tertiary border-tertiary w-32 p-2.5 text-sm font-bold text-white"
+                className="w-32 border-tertiary bg-tertiary p-2.5 text-sm font-bold text-white"
               >
                 Save
               </button>
               <button
                 type="button"
-                className="bg-primary border-primary w-32 p-2.5 text-sm font-bold text-white"
+                className="w-32 border-primary bg-primary p-2.5 text-sm font-bold text-white"
                 onClick={toggleEditingName}
               >
                 Cancel
@@ -90,7 +89,7 @@ export default function Profile() {
           </Form>
         ) : (
           <button
-            className="bg-tertiary border-tertiary p-2.5 text-sm font-bold text-white"
+            className="border-tertiary bg-tertiary p-2.5 text-sm font-bold text-white"
             onClick={toggleEditingName}
           >
             Edit name
