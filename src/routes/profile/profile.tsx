@@ -6,6 +6,7 @@ import { authenticateUser } from '~/features/auth/auth.ts';
 import { useEffect, useState } from 'react';
 import { updateUserProfile } from '~/features/auth/login.ts';
 import FormTextInput from './FormTextInput.tsx';
+import { accounts } from '~/mocked-data/profilePage.ts';
 
 export async function loader() {
   const user = authenticateUser();
@@ -97,24 +98,9 @@ export default function Profile() {
         )}
       </div>
       <h2 className="sr-only">Accounts</h2>
-      <Account
-        name="Argent Bank Checking"
-        id="x8349"
-        balance={2082.79}
-        balanceType="available"
-      />
-      <Account
-        name="Argent Bank Savings"
-        id="x6712"
-        balance={10928.42}
-        balanceType="available"
-      />
-      <Account
-        name="Argent Bank Credit Card"
-        id="x8349"
-        balance={184.3}
-        balanceType="current"
-      />
+      {accounts.map((account) => (
+        <Account key={account.id} {...account} />
+      ))}
     </>
   );
 }

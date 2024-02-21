@@ -2,7 +2,7 @@ interface AccountProps {
   name: string;
   id: string;
   balance: number;
-  balanceType: 'available' | 'current';
+  balanceType: 'available' | 'current' | string;
 }
 
 export default function Account({
@@ -28,7 +28,7 @@ export default function Account({
         <p>{capitalizedBalanceType} Balance</p>
       </div>
       <div className="w-full flex-1 min-[720px]:flex-[0]">
-        <button className="bg-tertiary border-tertiary mt-4 block w-full p-2 text-[1.1rem] font-bold text-white min-[720px]:w-[200px]">
+        <button className="mt-4 block w-full border-tertiary bg-tertiary p-2 text-[1.1rem] font-bold text-white min-[720px]:w-[200px]">
           View transactions
         </button>
       </div>
