@@ -8,7 +8,7 @@ import RootIndex from '~/routes/index';
 import Login, { action as loginAction } from '~/routes/login/login.tsx';
 import Profile, {
   loader as profileLoader,
-  action as loaderAction,
+  action as profileAction,
 } from '~/routes/profile/profile.tsx';
 import { store } from '~/store.tsx';
 import { Provider } from 'react-redux';
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
             path: 'profile',
             element: <Profile />,
             loader: profileLoader,
-            action: loaderAction,
+            action: profileAction,
           },
           {
             path: '/*',
