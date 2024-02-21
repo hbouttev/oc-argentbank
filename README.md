@@ -1,30 +1,32 @@
-# React + TypeScript + Vite
+# Project #10 - Argent Bank Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This codebase contains the code needed to run the frontend for Argent Bank.
 
-Currently, two official plugins are available:
+It needs the backend server to be running to work properly. You can find the
+backend server codebase and the instructions to run it
+[here](https://github.com/hbouttev/Project-10-Bank-API).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Install dependencies
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+npm install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Launch dev server
+
+```bash
+npm run dev
+```
+
+## Configure backend server base URL
+
+The default backend server base URL is already set to
+`http://localhost:3001/api/v1`.
+
+To modify the backend server base URL you need to set the `VITE_API_BASE_URL`
+environment variable in the `.env.development` file.
+
+
+```dotenv
+VITE_API_BASE_URL=http://localhost:3001/api/v1
+```
